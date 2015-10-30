@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JetBlack.Sspi", "JetBlack.Sspi\JetBlack.Sspi.csproj", "{CDDC279A-5FE7-4028-9434-E213A41A676C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JetBlack.Sspi.Test", "JetBlack.Sspi.Test\JetBlack.Sspi.Test.csproj", "{6943C38B-0834-4BBC-8EBE-D6AA509BF59A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CDDC279A-5FE7-4028-9434-E213A41A676C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDDC279A-5FE7-4028-9434-E213A41A676C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDDC279A-5FE7-4028-9434-E213A41A676C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDDC279A-5FE7-4028-9434-E213A41A676C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6943C38B-0834-4BBC-8EBE-D6AA509BF59A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6943C38B-0834-4BBC-8EBE-D6AA509BF59A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6943C38B-0834-4BBC-8EBE-D6AA509BF59A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6943C38B-0834-4BBC-8EBE-D6AA509BF59A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
