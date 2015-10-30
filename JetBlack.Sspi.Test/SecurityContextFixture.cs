@@ -26,11 +26,11 @@ namespace JetBlack.Sspi.Test
             {
                 byte[] serverToken;
                 serverContext.AcceptToken(clientToken, out serverToken);
-                if (serverContext.IsInitialized)
+                if (serverContext.IsInitialized && clientContext.IsInitialized)
                     break;
 
                 clientContext.Initialize(serverCredential.PrincipalName, serverToken, out clientToken);
-                if (clientContext.IsInitialized)
+                if (clientContext.IsInitialized && serverContext.IsInitialized)
                     break;
             }
 
