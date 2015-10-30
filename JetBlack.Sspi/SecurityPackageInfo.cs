@@ -12,7 +12,7 @@ namespace JetBlack.Sspi
     /// http://msdn.microsoft.com/en-us/library/windows/desktop/aa380104(v=vs.85).aspx
     /// </remarks>
     [StructLayout(LayoutKind.Sequential)]
-    public struct SecurityPackageInfo
+    internal struct SecurityPackageInfo
     {
         public SecurityPackageFlags Capabilities;
         public ushort Version;

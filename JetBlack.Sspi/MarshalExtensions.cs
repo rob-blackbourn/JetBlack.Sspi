@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 
 namespace JetBlack.Sspi
 {
-    public static class MarshalExtensions
+    internal static class MarshalExtensions
     {
         public static readonly DateTime Epoch = new DateTime(1601, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 

@@ -9,6 +9,7 @@
         /// SEC_WINNT_AUTH_IDENTITY_ANSI
         /// </summary>
         Ansi = 0x1,
+
         /// <summary>
         /// SEC_WINNT_AUTH_IDENTITY_UNICODE
         /// </summary>

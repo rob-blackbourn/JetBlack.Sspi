@@ -8,12 +8,10 @@ namespace JetBlack.Sspi.Test
         [TestCase("Negotiate", SspiContextFlags.MutualAuth | SspiContextFlags.InitIdentify | SspiContextFlags.Confidentiality | SspiContextFlags.ReplayDetect | SspiContextFlags.SequenceDetect | SspiContextFlags.Connection | SspiContextFlags.Delegate)]
         public void Test(string packageName, SspiContextFlags contextFlags)
         {
-            var package = SecurityPackageInfo.Query(packageName);
-
-            var clientCredential = new SecurityCredential(package, SecurityCredentialUse.Outbound);
+            var clientCredential = new SecurityCredential(packageName, SecurityCredentialUse.Outbound);
             clientCredential.Acquire();
 
-            var serverCredential = new SecurityCredential(package, SecurityCredentialUse.Inbound);
+            var serverCredential = new SecurityCredential(packageName, SecurityCredentialUse.Inbound);
             serverCredential.Acquire();
 
             var clientContext = new SecurityContext(clientCredential, contextFlags);

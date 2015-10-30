@@ -13,8 +13,7 @@ namespace JetBlack.Sspi.Test
         [TestCase("Kerberos", SecurityCredentialUse.Outbound)]
         public void ShouldAquireCredentials(string packageName, SecurityCredentialUse credentialUse)
         {
-            var package = SecurityPackageInfo.Query(packageName);
-            var credential = new SecurityCredential(package, credentialUse);
+            var credential = new SecurityCredential(packageName, credentialUse);
             credential.Acquire();
             credential.Dispose();
         }

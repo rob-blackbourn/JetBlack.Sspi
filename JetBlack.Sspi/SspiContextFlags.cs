@@ -18,6 +18,8 @@ namespace JetBlack.Sspi
         None = 0,
 
         /// <summary>
+        /// ISC_REQ_DELEGATE
+        /// 
         /// The server can use the context to authenticate to other servers as the client. The
         /// MutualAuth flag must be set for this flag to work. Valid for Kerberos. Ignore this flag for 
         /// constrained delegation.
@@ -35,12 +37,16 @@ namespace JetBlack.Sspi
         MutualAuth = 0x00000002,
 
         /// <summary>
+        /// ISC_REQ_REPLAY_DETECT
+        /// 
         /// Detect replayed messages that have been encoded by using the EncryptMessage or MakeSignature 
         /// message support functionality.
         /// </summary>
         ReplayDetect = 0x00000004,
 
         /// <summary>
+        /// ISC_REQ_SEQUENCE_DETECT
+        /// 
         /// Detect messages received out of sequence when using the message support functionality. 
         /// This flag implies all of the conditions specified by the Integrity flag - out-of-order sequence 
         /// detection can only be trusted if the integrity of any underlying sequence detection mechanism 
@@ -58,24 +64,32 @@ namespace JetBlack.Sspi
         Confidentiality = 0x00000010,
 
         /// <summary>
+        /// ISC_REQ_USE_SESSION_KEY
+        /// 
         /// A new session key must be negotiated.
         /// This value is supported only by the Kerberos security package.
         /// </summary>
         UseSessionKey = 0x00000020,
 
         /// <summary>
+        /// ISC_REQ_ALLOCATE_MEMORY
+        /// 
         /// The security package allocates output buffers for you. Buffers allocated by the security package have 
         /// to be released by the context memory management functions.
         /// </summary>
         AllocateMemory = 0x00000100,
 
         /// <summary>
+        /// ISC_REQ_CONNECTION
+        /// 
         /// The security context will not handle formatting messages. This value is the default for the Kerberos, 
         /// Negotiate, and NTLM security packages.
         /// </summary>
         Connection = 0x00000800,
 
         /// <summary>
+        /// ISC_REQ_EXTENDED_ERROR
+        /// 
         /// When errors occur, the remote party will be notified.
         /// </summary>
         /// <remarks>

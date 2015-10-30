@@ -9,22 +9,27 @@
         /// SECBUFFER_VERSION
         /// </summary>
         Version = 0,
+
         /// <summary>
         /// SECBUFFER_EMPTY
         /// </summary>
         Empty = 0,
+
         /// <summary>
         /// SECBUFFER_DATA
         /// </summary>
         Data = 1,
+
         /// <summary>
         /// SECBUFFER_TOKEN
         /// </summary>
         Token = 2,
+
         /// <summary>
         /// SECBUFFER_PADDING
         /// </summary>
         Padding = 9,
+
         /// <summary>
         /// SECBUFFER_STREAM
         /// </summary>

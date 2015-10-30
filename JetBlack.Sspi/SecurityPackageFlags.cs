@@ -3,7 +3,7 @@
 namespace JetBlack.Sspi
 {
     [Flags]
-    public enum SecurityPackageFlags : uint
+    internal enum SecurityPackageFlags : uint
     {
         /// <summary>
         /// SECPKG_FLAG_INTEGRITY

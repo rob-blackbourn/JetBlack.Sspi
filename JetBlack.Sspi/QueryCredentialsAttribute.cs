@@ -1,6 +1,6 @@
 ﻿namespace JetBlack.Sspi
 {
-    public enum QueryCredentialsAttribute : uint
+    internal enum QueryCredentialsAttribute : uint
     {
         Names = 1,
         SsiProvider = 2,

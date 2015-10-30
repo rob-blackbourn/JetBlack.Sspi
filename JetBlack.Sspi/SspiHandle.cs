@@ -11,7 +11,7 @@ namespace JetBlack.Sspi
     /// http://msdn.microsoft.com/en-us/library/windows/desktop/aa380495(v=vs.85).aspx
     /// </remarks>
     [StructLayout(LayoutKind.Sequential)]
-    public struct SspiHandle
+    internal struct SspiHandle
     {
         // private fields
         private IntPtr _hi;

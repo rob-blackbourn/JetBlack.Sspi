@@ -8,13 +8,13 @@ namespace JetBlack.Sspi
     {
 
         private SspiHandle _handle;
-        public SspiHandle Handle { get { return _handle; } }
+        internal SspiHandle Handle { get { return _handle; } }
 
-        public SecurityCredential(SecurityPackageInfo packageInfo, SecurityCredentialUse credentialUse)
+        public SecurityCredential(string packageName, SecurityCredentialUse credentialUse)
             : base(IntPtr.Zero, true)
         {
             _handle = new SspiHandle();
-            PackageInfo = packageInfo;
+            PackageInfo = SecurityPackageInfo.Query(packageName);
             CredentialUse = credentialUse;
         }
 
@@ -28,7 +28,7 @@ namespace JetBlack.Sspi
             return NativeMethods.FreeCredentialsHandle(ref _handle) == 0;
         }
 
-        public SecurityPackageInfo PackageInfo { get; private set; }
+        internal SecurityPackageInfo PackageInfo { get; private set; }
         public SecurityCredentialUse CredentialUse { get; private set; }
 
         private string _principalName;

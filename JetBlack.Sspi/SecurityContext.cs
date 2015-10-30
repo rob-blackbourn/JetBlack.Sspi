@@ -1,26 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 namespace JetBlack.Sspi
 {
-    /// <summary>
-    /// A wrapper around the SspiHandle structure specifically used as a security context handle.
-    /// </summary>
     public class SecurityContext : SafeHandle
     {
-        private static readonly IList<SecurityPackageInfo> PackageInfos;
-
         private readonly SecurityCredential _credential;
         private readonly SspiContextFlags _requestedContextFlags;
         private SspiContextFlags _receivedContextFlags;
         private SspiHandle _handle;
-
-        static SecurityContext()
-        {
-            PackageInfos = SecurityPackageInfo.Enumerate();
-        }
 
         public SecurityContext(SecurityCredential credential, SspiContextFlags contextFlags)
             : base(IntPtr.Zero, true)
@@ -552,51 +541,9 @@ namespace JetBlack.Sspi
             }
         }
 
-        // protected methods
         protected override bool ReleaseHandle()
         {
             return NativeMethods.DeleteSecurityContext(ref _handle) == 0;
-        }
-
-        // static methods
-        private static int GetMaxTokenSize()
-        {
-            uint count = 0;
-            var array = IntPtr.Zero;
-
-            try
-            {
-                var packages = SecurityPackageInfo.Enumerate();
-
-                var result = NativeMethods.EnumerateSecurityPackages(ref count, ref array);
-                if (result != NativeMethods.SEC_E_OK)
-                    return NativeMethods.MAX_TOKEN_SIZE;
-
-                var current = new IntPtr(array.ToInt64());
-                var size = Marshal.SizeOf(typeof(SecurityPackageInfo));
-                for (var i = 0; i < count; ++i)
-                {
-                    var package = (SecurityPackageInfo)Marshal.PtrToStructure(current, typeof(SecurityPackageInfo));
-                    if (package.Name != null && package.Name.Equals(SspiPackage.Kerberos.ToString(), StringComparison.InvariantCultureIgnoreCase))
-                        return (int)package.MaxTokenSize;
-                    current = new IntPtr(current.ToInt64() + size);
-                }
-
-                return NativeMethods.MAX_TOKEN_SIZE;
-            }
-            catch
-            {
-                return NativeMethods.MAX_TOKEN_SIZE;
-            }
-            finally
-            {
-                try
-                {
-                    NativeMethods.FreeContextBuffer(array);
-                }
-                catch
-                { }
-            }
         }
     }
 }
