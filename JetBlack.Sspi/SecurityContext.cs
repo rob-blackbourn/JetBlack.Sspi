@@ -496,16 +496,17 @@ namespace JetBlack.Sspi
                 try
                 {
                     var flags = SspiContextFlags.MutualAuth;
+                    var clientToken = new SecurityBufferDescriptor(inBytes);
 
                     uint result;
                     long timestamp;
                     var credentialHandle = _credential.Handle;
-                    if (inBytes == null || inBytes.Length == 0)
+                    if (_handle.IsZero)
                     {
                         result = NativeMethods.AcceptSecurityContext(
                             ref credentialHandle,
                             IntPtr.Zero,
-                            IntPtr.Zero,
+                            ref clientToken,
                             flags,
                             DataRepresentation.Network,
                             ref _handle,
@@ -515,7 +516,6 @@ namespace JetBlack.Sspi
                     }
                     else
                     {
-                        var clientToken = new SecurityBufferDescriptor(inBytes);
 
                         try
                         {

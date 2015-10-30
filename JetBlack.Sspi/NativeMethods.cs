@@ -244,7 +244,7 @@ namespace JetBlack.Sspi
         internal static extern uint AcceptSecurityContext(
             ref SspiHandle credentialHandle,
             IntPtr inContextPtr,
-            IntPtr inputBuffer,
+            ref SecurityBufferDescriptor inputBuffer,
             SspiContextFlags requestedAttribs,
             DataRepresentation dataRepresentation,
             ref SspiHandle outContext,
